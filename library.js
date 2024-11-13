@@ -5,7 +5,6 @@ const getLibrary = function () {
     .then((response) => {
         if (response.ok) {
             return response.json()
-            console.log(response)
         }
         else {
             throw new Error("Server response error")
@@ -13,9 +12,9 @@ const getLibrary = function () {
         }
     })
     .then((books) => {
+        console.log(books)
         const bookRow = document.getElementById('library-row') 
       books.forEach((book) => {
-        console.log(books)
         const newCol = document.createElement('div')
         newCol.classList.add('col', 'col-12', 'col-md-6', 'col-lg-3')
         newCol.innerHTML = `
@@ -28,23 +27,20 @@ const getLibrary = function () {
               <div class="card-body text-center">
                 <h5 class="card-title">${book.title}</h5>
                 <div class='d-flex justify-content-around'>
-                <p class="card-text">
-                  Category: ${book.category}
-                </p>
-                <p class="card-text">
+                <p class="card-text mb-3">
                   Price: ${book.price}€
                 </p>
                 </div>
-                <a href="#" class="btn btn-primary">Purchase</a>
-                <a href="#" class="btn btn-danger">Discard</a>
+                <div class="d-flex justify-content-center">
+                <a href="#" class="btn btn-success m-2">Purchase</a>
+                <a href="#" class="btn btn-warning m-2">Discard</a>
+                </div>
               </div>
         `
         bookRow.appendChild(newCol)
       })
     })
     .catch((error) => {
-      // siete nel finale "cattive" (Promise rejected)
-      // alert('ERRORE NELLA CHIAMATA')
       console.log(error)
     })
 }
