@@ -59,8 +59,7 @@ getLibrary()
 
 const addToCart = (book) => {
     const cartItems = document.getElementById('cart-items')
-    const cartItem = document.createElement('li')
-    // const 
+    const cartItem = document.createElement('li') 
     cartItem.textContent = `${book.title} - ${book.price}€`
     cartItems.appendChild(cartItem)
-};
+}
