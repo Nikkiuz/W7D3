@@ -24,7 +24,7 @@ const getLibrary = function () {
             class="card-img-top"
             alt="book picture"
             />
-            <div class="card-body text-center">
+            <div class="card-body text-center d-flex flex-column justify-content-between">
             <h5 class="card-title">${book.title}</h5>
             <div class='d-flex justify-content-around'>
             <p class="card-text mb-3">
